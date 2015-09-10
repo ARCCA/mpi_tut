@@ -1,0 +1,14 @@
+#!/bin/bash --login
+#BSUB -J LaplaceEquationCXX
+#BSUB -o LaplaceEquationCXX.out
+#BSUB -e LaplaceEquationCXX.err
+#BSUB -W 01:00
+#BSUB -P sam0023
+#BSUB -n 4
+#BSUB -R "span[ptile=1]"
+
+module purge
+module load compiler/intel
+module load mpi/intel
+
+mpirun -np $LSB_DJOB_NUMPROC ./LaplaceEquationCXX >& LaplaceEquationCXX.log.$LSB_JOBID

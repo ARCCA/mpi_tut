@@ -1,0 +1,14 @@
+#!/bin/bash --login
+#BSUB -J VibratingString-multiOutputCXX
+#BSUB -o VibratingString-multiOutputCXX.out
+#BSUB -e VibratingString-multiOutputCXX.err
+#BSUB -W 01:00
+#BSUB -P sam0023
+#BSUB -n 10
+#BSUB -R "span[ptile=1]"
+
+module purge
+module load compiler/intel
+module load mpi/intel
+
+mpirun -np $LSB_DJOB_NUMPROC ./VibratingString-multiOutputCXX >& VibratingString-multiOutputCXX.log.$LSB_JOBID

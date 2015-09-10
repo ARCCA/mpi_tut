@@ -1,0 +1,15 @@
+#!/bin/bash --login
+#BSUB -o HelloWorldF90.out
+#BSUB -e HelloWorldF90.err
+#BSUB -J HelloWorldF90
+#BSUB -W 01:00
+#BSUB -P sam0023
+#BSUB -n 16
+
+# Load the Environment
+module purge
+module load compiler/intel-12.0.084
+module load mpi/intel-4.0.0.028
+
+# Run the Program
+mpirun -np $LSB_DJOB_NUMPROC ./HelloWorldF90 >& HelloWorldF90.log.$LSB_JOBID
