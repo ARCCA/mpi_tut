@@ -1,8 +1,8 @@
 CXX=mpigxx
-CFLAGS=-I.
+CXXFLAGS=-O2
 
 HelloWorld: HelloWorld.o
-	$(CXX) -o HelloWorld HelloWorld.o -I.
+	$(CXX) $(CXXFLAGS)  -o HelloWorld HelloWorld.o
 
 clean:
 	rm *.o HelloWorld

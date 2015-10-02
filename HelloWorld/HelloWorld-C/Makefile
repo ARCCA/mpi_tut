@@ -1,8 +1,8 @@
 CC=mpicc
-CFLAGS=-I.
+CFLAGS=-O2
 
 HelloWorld: HelloWorld.o
-	$(CC) -o HelloWorld HelloWorld.o -I.
+	$(CC) $(CFLAGS) -o HelloWorld HelloWorld.o
 
 clean:
 	rm *.o HelloWorld 
