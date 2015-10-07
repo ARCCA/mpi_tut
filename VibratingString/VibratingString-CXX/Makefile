@@ -1,13 +1,13 @@
 CXX=mpigxx
 CXXFLAGS=-O2
 
-all: VibratingString VibratingString-multiOutput
+all: VibratingString VibratingStringmulti
 
-VibratingString-multiOutput: VibratingString-multiOutput.o
-	$(CXX) $(CXXFLAGS)  -o VibratingString-multiOutput VibratingString-multiOutput.o
+VibratingStringmulti: VibratingStringmulti.o
+	$(CXX) $(CXXFLAGS)  -o VibratingStringmulti VibratingStringmulti.o
 
 VibratingString: VibratingString.o
 	$(CXX) $(CXXFLAGS)  -o VibratingString VibratingString.o
 
 clean:
-	rm *.o VibratingString VibratingString-multiOutput
+	rm *.o VibratingString VibratingStringmulti
