@@ -1,3 +1,3 @@
 #!/bin/bash --login
-module load Java
+module load java
 java -classpath src uk/co/hpcwales/laplaceequation/VizTool output.txt
