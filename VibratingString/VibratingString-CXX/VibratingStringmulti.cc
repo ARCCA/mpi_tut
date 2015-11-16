@@ -53,6 +53,8 @@ int main(int argc, char **argv) {
   }
 
   double x;
+
+  // Calculate the initial conditions for our string.
   for(int i=0; i<nlocal; i++)
   {
     x = 2.0*M_PI*(double)(nstart+i)/(double)(npoints-1);
@@ -84,6 +86,7 @@ int main(int argc, char **argv) {
 
   for(int j=0; j<1500; j++)	// Iterations of time steps...
   {
+    // Pass data to and from the nearest neighbours.
     MPI::COMM_WORLD.Sendrecv(
 	    &psi[1], 1, MPI::DOUBLE, left, 123,  
 	    &psi[nlocal+1], 1, MPI::DOUBLE, right, 123, s);
@@ -91,6 +94,9 @@ int main(int argc, char **argv) {
     MPI::COMM_WORLD.Sendrecv(
 	    &psi[nlocal], 1, MPI::DOUBLE, right, 123,  
 	    &psi[0], 1, MPI::DOUBLE, left, 123, s);
+
+    // Calculate new string position at each point from known positions
+    // at t and (t - delta t) using finite difference method.
     for(int i=start;i<=end;i++)
       {
         newpsi[i] 
@@ -98,12 +104,16 @@ int main(int argc, char **argv) {
 	  - oldpsi[i]
 	  + (tau * tau * (psi[i-1] - (2.0 * psi[i]) + psi[i+1]));
       }
+
+    // Update position arrays.
     for(int i=1;i<=nlocal;i++)
       {
-	oldpsi[i] = psi[i];
-	psi[i] = newpsi[i];
+	    oldpsi[i] = psi[i];
+	    psi[i] = newpsi[i];
       }
 
+    // Output position of string at each point periodically within the
+    // timestep loop.
     if ( (j % 50) == 0)
       {
 	for(int i=start;i<=end;i++){

@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=16:mpiprocs=16:mem=10MB
+#PBS -l select=1:ncpus=10:mpiprocs=10:mem=10MB
 #PBS -l walltime=00:00:30
 #PBS -N VibratingString
 #PBS -o VibratingString.out
@@ -19,4 +19,4 @@ cd $WDPATH
 
 # Run a number of copies of the code equal to the number of
 # MPI processes requested.
-mpirun -np 16 $PBS_O_WORKDIR/VibratingString >& VibratingString.log.$PBS_JOBID
+mpirun -np 10 $PBS_O_WORKDIR/VibratingString >& VibratingString.log.$PBS_JOBID
