@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
     {
       // NOTE!!! Lazy coding - processor rank #0 does not
       // carry out any compute - only slaves carry out processing
-      int arraySize = 15; // 384;
+      int arraySize = 16; // 384;
       double *arrayData;
       arrayData = new double[arraySize];
       for (int i=0; i<arraySize; i++)

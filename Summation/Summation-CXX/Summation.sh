@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=16:mpiprocs=16:mem=10MB
+#PBS -l select=1:ncpus=3:mpiprocs=3:mem=10MB
 #PBS -l walltime=00:00:30
 #PBS -N Summation
 #PBS -o Summation.out
