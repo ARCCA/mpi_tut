@@ -4,8 +4,8 @@
 #PBS -N HelloPython
 #PBS -o HelloPython.out
 #PBS -e HelloPython.err
-#PBS -P PR39
-#PBS -q workq
+#PBS -P PR66
+#PBS -q training
 
 # Load required modules.
 module purge

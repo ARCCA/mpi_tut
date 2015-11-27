@@ -4,8 +4,8 @@
 #PBS -N HelloWorldCXX
 #PBS -o HelloWorldCXX.out
 #PBS -e HelloWorldCXX.err
-#PBS -P PR39
-#PBS -q workq
+#PBS -P PR66
+#PBS -q training
 
 # Load required modules.
 module purge

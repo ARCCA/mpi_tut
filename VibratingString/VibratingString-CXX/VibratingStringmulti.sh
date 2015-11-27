@@ -4,8 +4,8 @@
 #PBS -N VSMulti
 #PBS -o VSMulti.out
 #PBS -e VSMulti.err
-#PBS -P PR39
-#PBS -q workq
+#PBS -P PR66
+#PBS -q training
 
 # Load required modules.
 module purge

@@ -4,8 +4,8 @@
 #PBS -N VibratingString
 #PBS -o VibratingString.out
 #PBS -e VibratingString.err
-#PBS -P PR39
-#PBS -q workq
+#PBS -P PR66
+#PBS -q training
 
 # Load required modules.
 module purge

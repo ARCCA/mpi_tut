@@ -4,8 +4,8 @@
 #PBS -N LaplaceEquation
 #PBS -o LaplaceEquation.out
 #PBS -e LaplaceEquation.err
-#PBS -P PR39
-#PBS -q workq
+#PBS -P PR66
+#PBS -q training
 
 # Load required modules.
 module purge
