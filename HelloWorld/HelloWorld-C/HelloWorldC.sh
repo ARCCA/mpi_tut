@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=18:mpiprocs=18:mem=10MB
+#PBS -l select=1:ncpus=16:mpiprocs=16:mem=10MB
 #PBS -l walltime=00:00:30
 #PBS -N HelloWorldC
 #PBS -o HelloWorldC.out
