@@ -1,7 +1,9 @@
 # README #
 
-MPI tutorial source code for lectures on the 26th November and 3rd December, 2015.
+MPI tutorial source code for lectures on:
+26th November and 3rd December, 2015.
+24th November and 1st December, 2016 (revised).
 
 Original code and exercises developed by HPC Wales: http://http://hpcwales.co.uk/
 
-Contact *williamsa89@cardiff.ac.uk* for details.
+Contact *arcca@cardiff.ac.uk* for details.
