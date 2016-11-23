@@ -1,5 +1,5 @@
 #!/bin/env python
-# Example of blocking point-to-point MPI communication. Pairs of processes
+# Example of non-blocking point-to-point MPI communication. Pairs of processes
 # will send and receive data to and from each other in the form of
 # pickled python dictionaries.
 
@@ -30,18 +30,25 @@ if __name__ == "__main__":
         exch_rank = (rank + 1)
         sendtag = rank
         recvtag = 100 + exch_rank
-
-        # Even numbered processes send first, then receive data.
-        sendreq = comm.send(send_data, dest=exch_rank, tag=sendtag)
-        recv_data = comm.recv(source=exch_rank, tag=recvtag)
     else:
         exch_rank = (rank - 1)
         sendtag = 100 + rank
         recvtag = exch_rank
 
-        # Odd numbered processes receive data first, then send.
-        recv_data = comm.recv(source=exch_rank, tag=recvtag)
-        sendreq = comm.send(send_data, dest=exch_rank, tag=sendtag)
+    # All processes can send and receive data here and then continue
+    # processing. Note, that there's no guarantee at this point that
+    # data has actually been received.
+    sendreq = comm.isend(send_data, dest=exch_rank, tag=sendtag)
+    recvreq = comm.irecv(source=exch_rank, tag=recvtag)
+
+    # Further processing could occur here while the MPI libraries perform
+    # the communication...
+
+    # Only at this point do we wait until communication has been verified
+    # to be complete. Note, it's only at this point can we be sure that
+    # the recv_data variable contains any data.
+    sendreq.wait()
+    recv_data = recvreq.wait()
 
     # Print out the data sent and received by this process.
     print "Rank: %d, sent: %s, received: %s" % (rank, send_data, recv_data)

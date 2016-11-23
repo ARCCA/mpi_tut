@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -l select=1:ncpus=16:mpiprocs=16:mem=10MB
 #PBS -l walltime=00:00:30
-#PBS -N PointtoPoint
+#PBS -N PointNonBlocking
 #PBS -P PR66
 #PBS -q devel
 
@@ -16,8 +16,8 @@ mkdir -p $WDPATH
 cd $WDPATH
 
 # Copy the python code to the run directory
-cp $PBS_O_WORKDIR/point.py .
+cp $PBS_O_WORKDIR/point_nonblock.py .
 
 # Run a number of copies of the code equal to the number of
 # MPI processes requested.
-mpirun -np 16 ./point.py
+mpirun -np 16 ./point_nonblock.py
