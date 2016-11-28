@@ -3,7 +3,7 @@
 #PBS -l walltime=00:00:30
 #PBS -N PointtoPoint
 #PBS -P PR66
-#PBS -q devel
+#PBS -q training
 
 # Load required modules.
 module purge
