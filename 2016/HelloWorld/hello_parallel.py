@@ -14,5 +14,10 @@ if __name__ == "__main__":
     except Exception as err:
         sys.exit("Error: %s" % err)
 
+    # Get the size of the world and ask rank 0 process to print it
+    size = comm.Get_size()
+    if rank == 0:
+        print "There are %d processes in the World" % size
+
     # Say hello
     print "Hello World from process: %d" % rank
