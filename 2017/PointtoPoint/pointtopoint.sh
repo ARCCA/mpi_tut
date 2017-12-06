@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=16:mpiprocs=16:mem=10MB
+#PBS -l select=1:ncpus=12:mpiprocs=12:mem=1GB
 #PBS -l walltime=00:00:30
 #PBS -N PointtoPoint
 #PBS -P PR66
@@ -20,4 +20,4 @@ cp $PBS_O_WORKDIR/point.py .
 
 # Run a number of copies of the code equal to the number of
 # MPI processes requested.
-mpirun -np 16 ./point.py
+mpirun -np 12 ./point.py

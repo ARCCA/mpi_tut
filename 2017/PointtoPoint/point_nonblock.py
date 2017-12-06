@@ -39,10 +39,10 @@ if __name__ == "__main__":
     # processing. Note, that there's no guarantee at this point that
     # data has actually been received.
     sendreq = comm.isend(send_data, dest=exch_rank, tag=sendtag)
-    recvreq = comm.irecv(source=exch_rank, tag=recvtag)
 
     # Further processing could occur here while the MPI libraries perform
     # the communication...
+    recvreq = comm.irecv(source=exch_rank, tag=recvtag)
 
     # Only at this point do we wait until communication has been verified
     # to be complete. Note, it's only at this point can we be sure that
