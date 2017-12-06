@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=4:mpiprocs=4:mem=10MB
+#PBS -l select=1:ncpus=4:mpiprocs=4:mem=1MB
 #PBS -l walltime=00:00:30
 #PBS -N Cartesian
 #PBS -P PR66
