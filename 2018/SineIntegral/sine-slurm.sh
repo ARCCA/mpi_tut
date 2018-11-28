@@ -12,7 +12,7 @@ module load python/2.7.9-mpi
 
 # Create an output directory on the fast scratch filesystem, and
 # run from this directory.
-WDPATH=/scratch/$USER/raven_training/$SLURM_JOBID
+WDPATH=/scratch/$USER/mpi_training/$SLURM_JOBID
 mkdir -p $WDPATH
 cd $WDPATH
 
