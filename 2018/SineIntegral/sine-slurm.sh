@@ -1,7 +1,7 @@
 #!/bin/bash --login
 #SBATCH -n 4
 #SBATCH -t 0-00:30
-#SBATCH -N SineIntegral
+#SBATCH -J SineIntegral
 #SBATCH --account scw1148
 #SBATCH -p compute
 
