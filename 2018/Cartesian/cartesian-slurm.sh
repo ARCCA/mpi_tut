@@ -1,7 +1,7 @@
 #!/bin/bash --login
 #SBATCH -n 4
 #SBATCH -t 0-00:30
-#SBATCH -N Cartesian
+#SBATCH -J Cartesian
 #SBATCH --account scw1148
 #SBATCH -p compute
 

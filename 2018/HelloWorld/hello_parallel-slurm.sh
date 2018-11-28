@@ -1,7 +1,7 @@
 #!/bin/bash --login
 #SBATCH -n 12
 #SBATCH -t 0-00:30
-#SBATCH -N HelloPython
+#SBATCH -J HelloPython
 #SBATCH --account scw1148
 #SBATCH -p compute
 
